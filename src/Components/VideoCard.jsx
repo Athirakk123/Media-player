@@ -46,10 +46,16 @@ function VideoCard({video,del,cat}) {
             <Card style={cat?{width:'12rem'} :{width:'18rem'}} className='mt-2 ms-0' draggable onDragStart={(e)=>{handleDrag(e,video?.id)}}>
                 <Card.Img variant="top" src={video.image} style={{height:'250px'}} onClick={handleShow} />
                 <Card.Body style={{border:'2px solid black'}}>
-                    <Card.Title className='d-flex justify-content-between'>{video.caption}
-                    <Button onClick={()=>{handleDelete(video.id)}} className='bg-light'>
-                    <i className="fa-solid fa-trash" style={{color:'black'}} ></i>
-                    </Button>
+                    <Card.Title className='d-flex justify-content-between'>
+                        {video.caption}
+                        {
+                            !cat &&
+                             <Button onClick={()=>{handleDelete(video.id)}} className='bg-light'>
+                             <i className="fa-solid fa-trash" style={{color:'black'}} ></i>
+                             </Button>
+
+                        }
+                  
                     </Card.Title>
                 </Card.Body>
             </Card>
